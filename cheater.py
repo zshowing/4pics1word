@@ -35,15 +35,16 @@ for word in content:
 		url = "http://fanyi.youdao.com/openapi.do?keyfrom=4Pics1WordCheater&key=1630335074&type=data&doctype=json&version=1.1&q=%s" % word
 		r = requests.get(url)
 		response = r.json()
-		# for trans in response['translation']:
-		# 	print trans
+		
+		explains = ""
 		if 'basic' in response and 'explains' in response['basic']:
 			for explain in response['basic']['explains']:
-				print explain
+				explains += (explain + '\n')
 		else:
 			continue
 		
 		print word
+		print explains
 		print ""
 		match += 1
 
