@@ -7,10 +7,9 @@ if len(sys.argv) < 3:
 
 letters = sys.argv[1]
 count = int(sys.argv[2])
-
 letterList = [l for l in letters]
-
-dictUrl = "/Users/shuozhang/Downloads/english-words-master/words2.txt"
+dictUrl = "./words2.txt"
+match = 0
 
 with open(dictUrl) as f:
 	content = [line.rstrip('\n') for line in f]
@@ -29,12 +28,9 @@ def checkMatch(word):
 			return False
 	return True
 
-match = 0
-
 for word in content:
-	if len(word) == count :
-		if checkValid(word) and checkMatch(word):
-			print word
-			match += 1
+	if len(word) == count and checkValid(word) and checkMatch(word):
+		print word
+		match += 1
 
 print match
