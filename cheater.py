@@ -45,7 +45,6 @@ for word in content:
 		
 		print word
 		print explains
-		print ""
 		match += 1
 
-print match
+print "%d words in total." % match
